@@ -1,5 +1,4 @@
 %Assignment 3
-%Joshua Roberts, Magan Omar, Rene Romo, Athif Wulandana
 %Relations
 
 roles_relation(prison_ward/inmate).
@@ -72,29 +71,6 @@ object(burner_phone).
 
 % Object implications/contradictions
 implies(has(C,gun),role(C,guard)).
-implies(has(C,cell_key), role(C,guard)).
-implies(has(C,guard_uniform), role(C,guard)).
-implies(has(C,prison_blueprints), role(C,ward)).
-implies(has(C,syringe), role(C,doctor)).
-implies(has(C,lockpicks),role(C,inmate)).
-implies(has(C,recording_device), role(C, informant)).
-
-contradiction(has(C,cell_key), role(C,inmate)).
-contradiction(has(C,cell_key), role(C,prison_gang_leader)).
-contradiction(has(C,drugs), role(C,inmate)).
-contradiction(has(C,drugs), role(C,prison_gang_leader)).
-contradiction(has(C,gun), role(C,inmate)).
-contradiction(has(C,gun), role(C,prison_gang_leader)).
-contradiction(has(C,shovel), role(C,inmate)).
-contradiction(has(C,shovel), role(C,prison_gang_leader)).
-contradiction(has(C,money), role(C,inmate)).
-contradiction(has(C,money), role(C,prison_gang_leader)).
-
-contradiction(has(C,shank),role(C,inmate)).
-% should a prision_gang_leader have a shank? -- I think so, so
-% commenting line below
-% contradiciton(has(C,shank),role(C,prison_gang_leader)).
-
 
 
 %Locations
