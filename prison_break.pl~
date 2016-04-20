@@ -81,13 +81,3 @@ location(prison_yard).
 location(prison_basketball_court).
 location(solitary_cell).
 location(showers).
-location(prison_chapel).
-location(library).
-location(roof).
-location(gym).
-location(bathroom).
-location(visitation_room).
-location(prisoners_mind).
-location(storage_closet).
-location(prison_bomb_shelter).
-location(outside_prison_walls).
