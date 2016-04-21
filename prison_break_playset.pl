@@ -70,6 +70,7 @@ object(nail_filer).
 object(lockpicks).
 object(burner_phone).
 
+
 % Object implications/contradictions
 implies(has(C,gun),role(C,guard)).
 implies(has(C,cell_key), role(C,guard)).
@@ -115,9 +116,56 @@ location(roof).
 location(gym).
 location(bathroom).
 location(visitation_room).
-location(prisoners_mind).
+location(inmates_mind).
 location(storage_closet).
 location(prison_bomb_shelter).
 location(outside_prison_walls).
 
-%
+%location implications/contradictions
+%role_location(politician, a_fact_finding_tour_in_the_bahmamas).
+%implies(at(X, inside_car(leaky_rowboat)), at(X, river)).
+%implies(at(C, inside_abondoned_facility), role(C, secret_agent)).
+
+%inmates can't start outside the prison or in a watch tower
+contradiction(at(C,outside_prison_walls), role(C, inmate)).
+contradiction(at(C,watchtower), role(C,inmate)).
+
+%probably don't have a need of food if you're in a cafeteria
+contradiction(at(C,cafeteria), needs(C,food)).
+contradiction(at(C,cafeteria), needs(C,drink)).
+
+%implies(at(C,tunnel),role(C,inmate)).
+%why would you be in the cell you have the key to?
+contradiction(at(C,cell),has(C,cell_key)).
+
+
+%contradiction if you're not in prison
+contradiction(at(C,outside_prison_walls), needs(C,break_out)).
+contradiction(at(C,outside_prison_walls), needs(C,get_out_on_good_behavior)).
+contradiction(at(C,outside_prison_walls), needs(C,revenge_for_being_locked_up)).
+contradiction(at(C,outside_prison_walls), needs(C,smuggle)).
+
+
+implies(at(C,inmates_mind),role(C,inmate)).
+implies(at(C,cell),role(C,inmate)).
+implies(at(C,solitary_cell),role(C,inmate)).
+
+implies(at(C,library),has(C,book)).
+implies(at(C,tunnel),has(C,shovel)).
+implies(at(C,doctors_office),has(C,syringe)).
+
+%inmates shouldn't start in the guards locations
+implies(at(C,guard_break_room),role(C,guard)).
+implies(at(C,watchtower),role(C,guard)).
+
+
+
+
+
+
+
+
+
+
+
+
