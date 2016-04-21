@@ -6,7 +6,7 @@
 conflicting_roles([prison_ward,inmate,guard, warden,
 	prison_gang_leader, bodyguard, gang_member]).
 
-roles_relation(prison_warden/inmate).
+roles_relation(prison_warden/inmate). %I'm assuming this is different to warden down below.
 left_unique(prison_warden/inmate).
 
 roles_relation(radiation_induced_cannibal/desired_victim).
@@ -19,8 +19,7 @@ roles_relation(doctor/patient).
 symmetric(siblings).
 implies(relationship(X,siblings,_),
 	relationship(X,family,_),
-	role(X,sibling),
-	role(X,family)).
+	role(X,sibling)).
 
 implies(relationship(_,siblings,Y),
 	relationship(_,family,Y),
@@ -59,17 +58,17 @@ roles_relation(boss/employee).
 left_unique(boss/employee).
 
 roles_relation(assassin/target).
-right_unique(assassin/target).
+right_unique(assassin/target).%Asssuming it only has one target.
 
 roles_relation(prison_gang_leader/bodyguard).
 
 roles_relation(prison_gang_leader/gang_member).
-left_unique(prison_gang_leader/gang_member).
+left_unique(prison_gang_leader/gang_member). %Assuming it only has one leader
 
 roles_relation(guard/inmate).
 
 roles_relation(loan_shark/borrower).
-left_unique(loan_shark/borrower).
+left_unique(loan_shark/borrower). %Assuming it only has one loan shark
 
 roles_relation(client/lawyer).
 right_unique(client/laywer).
