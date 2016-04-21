@@ -1,7 +1,7 @@
 %Assignment 3
 %Joshua Roberts, Magan Omar, Rene Romo, Athif Wulandana
 %Relations
-:- discontiguous roles_relation/1, symmetric/1.
+:- discontiguous roles_relation/1, symmetric/1, left_unique/1,right_unique/1, implies/3, implies/2, contradiction/2.
 
 conflicting_roles([prison_ward,inmate,guard, warden,
 	prison_gang_leader, bodyguard, gang_member]).
@@ -36,18 +36,31 @@ implies(relationship(_,cousins,Y),
 
 
 roles_relation(parent/child).
-implies(relationship(X,parent/child,_)
-	implies(X,family,_)).
+implies(relationship(X,parent/child,_),
+	relationship(X,family,_),
+	role(X,parent)).
 
-implies(relationship(_,parent/child,Y)
-	implies(_,family,Y)).
+implies(relationship(_,parent/child,Y),
+	relationship(_,family,Y),
+	role(child)).
 
 roles_relation(uncle/nephew).
-implies(relationship(X,uncle/nephew,_)
-	implies(X,family,_)).
+implies(relationship(X,uncle/nephew,_),
+	relationship(X,family,_),
+	role(uncle)).
 
-implies(relationship(_,uncle/nephew,Y)
-	implies(_,family,Y)).
+implies(relationship(_,uncle/nephew,Y),
+	relationship(_,family,Y),
+	role(nephew)).
+
+roles_relation(aunt/niece).
+implies(relationship(X,aunt/niece,_),
+	relationship(X,family,_),
+	role(aunt)).
+
+implies(relationship(_,aunt/niece,Y),
+	relationship(_,family,Y),
+	role(niece)).
 
 symmetric(family).
 implies(relationship(X,family,_)).
