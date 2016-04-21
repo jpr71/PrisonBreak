@@ -1,5 +1,8 @@
 %Assignment 3
-%Joshua Roberts, Magan Omar, Rene Romo, Athif Wulandana
+% Joshua Roberts (jpr293), Magan Omar(mao312), Rene Romo(rgr355), Athif
+% Wulandana (aiw564)
+% Prison Break
+% Set in a prison, our Prison Break playset focuses on the relationships and needs of the prison population, including inmates and guards alike. Will you break out of (or into) the prison with the help of a guard? Will you instead form a gang and be feared by both inmates and guards? The possibilities are endless in Prison Break.
 %Relations
 :- discontiguous roles_relation/1, symmetric/1, left_unique/1,right_unique/1, implies/3, implies/2, contradiction/2.
 

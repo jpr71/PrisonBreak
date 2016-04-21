@@ -99,9 +99,11 @@ roles_relation(retired_assassin/contractor).
 
 %Needs
 need(break_out).
-
+implies(needs(C, break_out), role(C, inmate)).
 need(create_a_gang).
+implies(needs(C, create_a_gang), role(C, inmate)).
 need(get_out_on_good_behavior).
+implies(needs(C, get_out_on_good_behavior), role(C, inmate)).
 need(make_money).
 need(smuggle).
 need(drugs).
@@ -113,11 +115,15 @@ need(cigarettes).
 need(alcohol).
 need(big_macs).
 need(get_into_prison).
+contradiction(needs(C, get_into_prison), role(C, inmate)).
 need(keep_inmates_in_prison).
 need(keep_inmates_alive).
 need(revenge_for_being_locked_up).
+implies(needs(C, revenge_for_being_locked_up), role(C, inmate)).
 need(find_the_snitch).
+implies(needs(C, find_the_snitch), role(C, inmate)).
 need(murder_someone_to_get_initiated).
+implies(needs(C, murder_someone_to_get_initiated), role(C, inmate)).
 need(gain_salvation).
 need(convert_others).
 
