@@ -1,27 +1,88 @@
 %Assignment 3
 %Relations
+:- discontiguous roles_relation/1, symmetric/1.
 
-roles_relation(prison_ward/inmate).
+conflicting_roles([prison_ward,inmate,guard, warden,
+	prison_gang_leader, bodyguard, gang_member]).
+
+roles_relation(prison_warden/inmate).
+left_unique(prison_warden/inmate).
+
 roles_relation(radiation_induced_cannibal/desired_victim).
+
 roles_relation(psychologist/patient).
+left_unique(psychologist/patient).
+
 roles_relation(doctor/patient).
+
 symmetric(siblings).
+implies(relationship(X,siblings,_),
+	relationship(X,family,_),
+	role(X,sibling),
+	role(X,family)).
+
+implies(relationship(_,siblings,Y),
+	relationship(_,family,Y),
+	role(Y,sibling)).
+
 symmetric(cousins).
+implies(relationship(X,cousins,_),
+	relationship(X,family,_),
+	role(X,cousin)).
+
+implies(relationship(_,cousins,Y),
+	relationship(_,family,Y),
+	role(Y,cousin)).
+
+
 roles_relation(parent/child).
+implies(relationship(X,parent/child,_)
+	implies(X,family,_)).
+
+implies(relationship(_,parent/child,Y)
+	implies(_,family,Y)).
+
 roles_relation(uncle/nephew).
+implies(relationship(X,uncle/nephew,_)
+	implies(X,family,_)).
+
+implies(relationship(_,uncle/nephew,Y)
+	implies(_,family,Y)).
+
 symmetric(family).
+implies(relationship(X,family,_)).
+
+implies(relationship(_,family,Y)).
+
 roles_relation(boss/employee).
+left_unique(boss/employee).
+
 roles_relation(assassin/target).
+right_unique(assassin/target).
+
 roles_relation(prison_gang_leader/bodyguard).
+
 roles_relation(prison_gang_leader/gang_member).
+left_unique(prison_gang_leader/gang_member).
+
 roles_relation(guard/inmate).
+
 roles_relation(loan_shark/borrower).
+left_unique(loan_shark/borrower).
+
 roles_relation(client/lawyer).
+right_unique(client/laywer).
+
 roles_relation(informant/guard).
 roles_relation(chaplain/inmate).
 roles_relation(janitor/inmate).
+
 roles_relation(warden/secretary).
+left_unique(warden/secretary).
+right_unique(warden/secretary).
+
 roles_relation(retired_assassin/contractor).
+
 
 %Needs
 need(break_out).

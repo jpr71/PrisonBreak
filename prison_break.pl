@@ -6,14 +6,11 @@
 % Relationships
 %
 
-conflicting_roles([politician, strategist, staffer, opposition_researcher, intern,
-		   lobbyist, journalist, billionaire, foreign_dictator, televangelist, activist,
-		   special_prosecutor, supreme_court_justice, lawyer,
-		   drug_dealer, madam, hired_burgler, hacker, honey_trap, 'PR strategist',
-		   militia_member ]).
+conflicting_roles([prison_ward,inmate,guard, warden,
+	prison_gang_leader, bodyguard, gang_member]).
 
 roles_relation(politician/lobbyist).
-
+	
 symmetric(political_rivals).
 implies(relationship(X, political_rivals, _),
 	role(X, politician)).
